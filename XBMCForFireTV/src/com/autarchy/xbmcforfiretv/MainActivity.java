@@ -25,8 +25,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-
     	
     	// Assign string references to variables for convenience
         final String XBMC_NAME = getString(R.string.xbmc_name);
@@ -36,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
         final String OUYA_NAME = getString(R.string.ouya_name);
         final String OUYA_PACKAGE = getString(R.string.ouya_package);
         
-        // Initalize arrays for detected installed versions of XBMC
+        // Create arrays for detected installed versions of XBMC
         final List<String> installedVersionName = new ArrayList<String>();
         final List<String> installedVersionPackage = new ArrayList<String>();	// Must be final
        
