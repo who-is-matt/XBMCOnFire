@@ -18,7 +18,10 @@ public final class R {
     }
     public static final class array {
         public static final int packages=0x7f0c0001;
-        /**  DO NOT change the order of these arrays or get them out of sync! 
+        /**  //
+    	DO NOT get these arrays out of sync!
+    	This is the order in which the versions will appear on the version_select view
+    // 
          */
         public static final int versions=0x7f0c0000;
     }
@@ -800,10 +803,11 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070003;
+        public static final int abc_search_url_text_holo=0x7f070004;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
+        public static final int black=0x7f070003;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1160,25 +1164,37 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_settings=0x7f0a001f;
+        public static final int action_settings=0x7f0a001e;
         public static final int app_name=0x7f0a000d;
-        public static final int button_send=0x7f0a001e;
-        public static final int edit_message=0x7f0a001d;
-        public static final int exit_app=0x7f0a001b;
-        public static final int no_xbmc=0x7f0a001a;
-        public static final int ouya_name=0x7f0a0014;
-        public static final int ouya_package=0x7f0a0015;
-        public static final int qr_description=0x7f0a001c;
-        public static final int settingsFile=0x7f0a000f;
-        public static final int spmc_name=0x7f0a0012;
-        public static final int spmc_package=0x7f0a0013;
+        public static final int button_send=0x7f0a001d;
+        public static final int edit_message=0x7f0a001c;
+        public static final int exit_app=0x7f0a001a;
+        /**  //
+    	Text for the no_xbmc view
+    // 
+         */
+        public static final int no_xbmc=0x7f0a0019;
+        public static final int ouya_name=0x7f0a0013;
+        public static final int ouya_package=0x7f0a0014;
+        public static final int qr_description=0x7f0a001b;
+        public static final int spmc_name=0x7f0a0011;
+        public static final int spmc_package=0x7f0a0012;
         public static final int title_activity_main=0x7f0a000e;
-        public static final int version_notselected=0x7f0a0019;
-        public static final int version_remember=0x7f0a0017;
-        public static final int version_select=0x7f0a0016;
-        public static final int version_start=0x7f0a0018;
-        public static final int xbmc_name=0x7f0a0010;
-        public static final int xbmc_package=0x7f0a0011;
+        public static final int version_notselected=0x7f0a0018;
+        public static final int version_remember=0x7f0a0016;
+        /**  //
+    	Text for the version_select view
+    // 
+         */
+        public static final int version_select=0x7f0a0015;
+        public static final int version_start=0x7f0a0017;
+        /** // 
+    	Names and packages for known versions of XBMC.
+    	Any additions made here should be reflected in the variable assignments at the beginning of MainActivity
+    // 
+         */
+        public static final int xbmc_name=0x7f0a000f;
+        public static final int xbmc_package=0x7f0a0010;
     }
     public static final class style {
         /** 

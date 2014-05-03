@@ -33,7 +33,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
- 
+
+    	
+    	// Assign string references to variables for convenience
         String xbmcName = getString(R.string.xbmc_name);
         String xbmcPackage = getString(R.string.xbmc_package);
         String spmcName = getString(R.string.spmc_name);
@@ -41,10 +43,14 @@ public class MainActivity extends ActionBarActivity {
         String ouyaName = getString(R.string.ouya_name);
         String ouyaPackage = getString(R.string.ouya_package);
         
+        // Initalize arrays for detected installed versions of XBMC
+        // TODO: Maybe combine these lists into a 2D array to decrease the chance that the names and packages will
+        // 		get out of sync?
         List<String> installedVersionName = new ArrayList<String>();
         List<String> installedVersionPackage = new ArrayList<String>();
        
-        String defaultVersion = getDefault();
+        // Check for user-specified version to launch
+        String defaultVersion = getPref("defaultPackage");
    
         if (defaultVersion != null) 
         {
@@ -53,6 +59,7 @@ public class MainActivity extends ActionBarActivity {
 	    	finish();
         }
         
+        // If no version has been specified by the user, check for installed versions of XBMC
         if (isAppInstalled(xbmcPackage))
         {
         	installedVersionName.add(xbmcName);
@@ -68,7 +75,8 @@ public class MainActivity extends ActionBarActivity {
         	installedVersionName.add(ouyaName);
         	installedVersionPackage.add(ouyaPackage);
         }
-        
+        // If no versions of XBMC are installed, display the no_xbmc view, which contains
+        // a link and QR code for the XBMC wiki page for the Amazon Fire TV
         if (installedVersionName.isEmpty())
         {
         	setContentView(R.layout.no_xbmc);
@@ -77,21 +85,24 @@ public class MainActivity extends ActionBarActivity {
 	        {
 	        	public void onClick(View w)
 	        	{
-	        		finish();
+	        		finish();	// ensures that this app is closed once the job is done
 	        	}
 	        });
-        	
         }
+        // If a single version of XBMC is found, automatically launch it then exit
         else if (installedVersionName.size() == 1)
         {
         	Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage(installedVersionPackage.get(0));
         	startActivity(LaunchIntent);
-        	finish();
+        	finish();	// ensures that this app is closed once the job is done
         }
+        // If multiple versions are found, populate the version_select view to allow the
+        // user to select the desired version to launch
         else
         {
         	setContentView(R.layout.version_select);      	
 
+        	// Populate the radio group in the version_select view with the installed versions of XBMC
 	        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupVersions);
 	        RadioGroup.LayoutParams rprms;
 
@@ -103,16 +114,23 @@ public class MainActivity extends ActionBarActivity {
 	              rprms = new RadioGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 	              radioGroup.addView(radioButton, rprms);
 	        }
-	        
+
+
+	        /* *** This section is not currently used, but might prove useful in the future	        
 	        radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() 
 	        {
 	            public void onCheckedChanged(RadioGroup group, int checkedId) 
 	            {
-	                
-	                
+	            	
 	            }
 	        });
+	        *** */
 	        
+	        // Set a listener for the buttonStart button:
+	        //    If no radio button is selected, display an error message in a toast
+	        //    If a radio button is selected, launch the specified version of XBMC
+	        //    If a radio button is selected and the check box is checked, save the
+	        //       user's preference, then launch the specified version.
 	        Button startXbmc = (Button) findViewById(R.id.buttonStart);
 	        startXbmc.setOnClickListener(new OnClickListener()
 	        {
@@ -127,29 +145,30 @@ public class MainActivity extends ActionBarActivity {
 	        		
 	        		Intent launchIntent = null;
 	        		
+	        		// TODO: This section could be simplified if the separate lists were combined into a 2D list
 	        		if (idx == 0) 
 	        		{
 	        			launchIntent = getPackageManager().getLaunchIntentForPackage(getString(R.string.xbmc_package));
 	        	    	if (rememberVersion.isChecked()) 
-	        	    		setDefault(getString(R.string.xbmc_package));
+	        	    		setPref("defaultPackage", getString(R.string.xbmc_package));
 	        		}
 	        		else if (idx == 1)
 	        		{
 	        			launchIntent = getPackageManager().getLaunchIntentForPackage(getString(R.string.spmc_package));
 	        	    	if (rememberVersion.isChecked()) 
-	        	    		setDefault(getString(R.string.spmc_package));
+	        	    		setPref("defaultPackage", getString(R.string.spmc_package));
 	        		}
 	        		else if (idx == 2)
 	        		{
 	        			launchIntent = getPackageManager().getLaunchIntentForPackage(getString(R.string.ouya_package));
 	        	    	if (rememberVersion.isChecked()) 
-	        	    		setDefault(getString(R.string.ouya_package));
+	        	    		setPref("defaultPackage", getString(R.string.ouya_package));
 	        		}
 	        		
 	        	    if (launchIntent != null)
 	        	    {
 	        	    	startActivity(launchIntent);
-	        	    	finish();
+	        	    	finish();	// ensures that this app is closed once the job is done
 	        	    }
 	        	    else Toast.makeText(getApplicationContext(), R.string.version_notselected, Toast.LENGTH_LONG).show();
 	        	    
@@ -161,6 +180,8 @@ public class MainActivity extends ActionBarActivity {
  
     }
     
+    
+    // Function to check if a specified package is installed
     private boolean isAppInstalled(String packageName) 
     {
         PackageManager pm = getPackageManager();
@@ -174,16 +195,21 @@ public class MainActivity extends ActionBarActivity {
         return installed;
     }
     
-    private String getDefault()
+    
+    // Function for getting preferences
+    // Required to prevent scope issues
+    private String getPref(String p)
     {
     	SharedPreferences prefs = MainActivity.this.getPreferences(MODE_PRIVATE);
-    	return prefs.getString("defaultPackage", null);
+    	return prefs.getString(p, null);
     }
     
-    private void setDefault(String defaultPackage)
+    // Function for setting preferences
+    // Required to prevent scope issues
+    private void setPref(String p, String v)
     {
     	SharedPreferences prefs = MainActivity.this.getPreferences(MODE_PRIVATE);
-    	prefs.edit().putString("defaultPackage", defaultPackage).commit();
+    	prefs.edit().putString(p, v).commit();
     }
 
 }
