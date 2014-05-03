@@ -105,12 +105,13 @@ public class MainActivity extends ActionBarActivity {
         	// Populate the radio group in the version_select view with the installed versions of XBMC
 	        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroupVersions);
 	        RadioGroup.LayoutParams rprms;
-
+	        CheckBox cb = (CheckBox) findViewById(R.id.checkBoxRemember);
 	        for(int i=0;i<installedVersionName.size();i++)
 	        {
 	              RadioButton radioButton = new RadioButton(this);
 	              radioButton.setText(installedVersionName.get(i));
 	              radioButton.setId(i);
+	              radioButton.setTextColor(cb.getTextColors());
 	              rprms = new RadioGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 	              radioGroup.addView(radioButton, rprms);
 	        }

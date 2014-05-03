@@ -3,21 +3,25 @@
 
     <string name="app_name">XBMC for Fire TV</string>
     <string name="title_activity_main">MainActivity</string>
-    
-    <!--// 
+
+    <!--
+    // 
     	Names and packages for known versions of XBMC.
     	Any additions made here should be reflected in the variable assignments at the beginning of MainActivity
-    // -->
+    //
+    -->
     <string name="xbmc_name">XBMC</string>
     <string name="xbmc_package">org.xbmc.xbmc</string>
     <string name="spmc_name">SPMC</string>
     <string name="spmc_package">com.semperpax.spmc</string>
     <string name="ouya_name">XBMC for Ouya</string>
     <string name="ouya_package">tv.ouya.xbmc</string>
-    <!-- //
+    <!--
+    //
     	DO NOT get these arrays out of sync!
     	This is the order in which the versions will appear on the version_select view
-    // -->
+    //
+    -->
     <string-array name="versions">
         <item>@string/xbmc_name</item>
         <item>@string/spmc_name</item>
@@ -27,27 +31,35 @@
         <item>@string/xbmc_package</item>
         <item>@string/spmc_package</item>
         <item>@string/ouya_package</item>
-    </string-array>    
-    
-    <!-- //
+    </string-array>
+
+    <!--
+    //
     	Text for the version_select view
-    // -->
+    //
+    -->
     <string name="version_select">Please select which version of XBMC you want to start.</string>
     <string name="version_remember">Launch this version automatically from now on</string>
     <string name="version_start">Start XBMC</string>
     <string name="version_notselected">Please select one of the listed versions of XBMC</string>
-    
-    <!-- //
+
+    <!--
+    //
     	Text for the no_xbmc view
-    // -->
+    //
+    -->
     <string name="no_xbmc">You do not appear to have any versions of XBMC installed on this device. Instructions for installing XBMC may be found on the XBMC wiki:\nhttp://wiki.xbmc.org/index.php?title=Amazon_Fire_TV</string>
     <string name="exit_app">Exit</string>
     <string name="qr_description">QR Code for the XBMC wiki page for the Fire TV</string>
-    
-    
     <string name="edit_message"></string>
     <string name="button_send"></string>
     <string name="action_settings"></string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="hello_world">Hello world!</string>
     
+    <!-- //
+    	Text for the activity_spash_screen view
+    // -->
+    <string name="splashscreen_description">XBMC For Fire TV Splashscreen</string>
 
 </resources>

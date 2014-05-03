@@ -18,10 +18,12 @@ public final class R {
     }
     public static final class array {
         public static final int packages=0x7f0c0001;
-        /**  //
+        /** 
+    //
     	DO NOT get these arrays out of sync!
     	This is the order in which the versions will appear on the version_select view
-    // 
+    //
+    
          */
         public static final int versions=0x7f0c0000;
     }
@@ -1030,7 +1032,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView1=0x7f05003e;
+        public static final int imageView1=0x7f05003d;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1058,7 +1060,7 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int textView1=0x7f05003d;
+        public static final int textView1=0x7f05003e;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
@@ -1115,13 +1117,16 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int activity_main=0x7f030017;
-        public static final int fragment_main=0x7f030018;
-        public static final int no_xbmc=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
-        public static final int version_select=0x7f03001b;
+        public static final int activity_splash_screen=0x7f030018;
+        public static final int fragment_main=0x7f030019;
+        public static final int fragment_splash_screen=0x7f03001a;
+        public static final int no_xbmc=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int version_select=0x7f03001d;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
+        public static final int splash_screen=0x7f0d0001;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1169,29 +1174,42 @@ containing a value of this type.
         public static final int button_send=0x7f0a001d;
         public static final int edit_message=0x7f0a001c;
         public static final int exit_app=0x7f0a001a;
-        /**  //
+        public static final int hello_world=0x7f0a0020;
+        /** 
+    //
     	Text for the no_xbmc view
-    // 
+    //
+    
          */
         public static final int no_xbmc=0x7f0a0019;
         public static final int ouya_name=0x7f0a0013;
         public static final int ouya_package=0x7f0a0014;
         public static final int qr_description=0x7f0a001b;
+        /**  //
+    	Text for the activity_spash_screen view
+    // 
+         */
+        public static final int splashscreen_description=0x7f0a0021;
         public static final int spmc_name=0x7f0a0011;
         public static final int spmc_package=0x7f0a0012;
         public static final int title_activity_main=0x7f0a000e;
+        public static final int title_activity_splash_screen=0x7f0a001f;
         public static final int version_notselected=0x7f0a0018;
         public static final int version_remember=0x7f0a0016;
-        /**  //
+        /** 
+    //
     	Text for the version_select view
-    // 
+    //
+    
          */
         public static final int version_select=0x7f0a0015;
         public static final int version_start=0x7f0a0017;
-        /** // 
+        /** 
+    // 
     	Names and packages for known versions of XBMC.
     	Any additions made here should be reflected in the variable assignments at the beginning of MainActivity
-    // 
+    //
+    
          */
         public static final int xbmc_name=0x7f0a000f;
         public static final int xbmc_package=0x7f0a0010;
