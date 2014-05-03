@@ -3,6 +3,7 @@
 
     <string name="app_name">XBMC for Fire TV</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
 
     <!--
     // 
@@ -51,15 +52,11 @@
     <string name="no_xbmc">You do not appear to have any versions of XBMC installed on this device. Instructions for installing XBMC may be found on the XBMC wiki:\nhttp://wiki.xbmc.org/index.php?title=Amazon_Fire_TV</string>
     <string name="exit_app">Exit</string>
     <string name="qr_description">QR Code for the XBMC wiki page for the Fire TV</string>
-    <string name="edit_message"></string>
-    <string name="button_send"></string>
-    <string name="action_settings"></string>
-    <string name="title_activity_splash_screen">SplashScreen</string>
-    <string name="hello_world">Hello world!</string>
     
     <!-- //
     	Text for the activity_spash_screen view
     // -->
+    <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="splashscreen_description">XBMC For Fire TV Splashscreen</string>
 
 </resources>

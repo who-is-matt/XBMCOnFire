@@ -6,26 +6,19 @@ import java.util.List;
 import com.autarchy.xbmcforfiretv.R;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
+//import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
-import android.os.Build;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -36,18 +29,16 @@ public class MainActivity extends ActionBarActivity {
 
     	
     	// Assign string references to variables for convenience
-        String xbmcName = getString(R.string.xbmc_name);
-        String xbmcPackage = getString(R.string.xbmc_package);
-        String spmcName = getString(R.string.spmc_name);
-        String spmcPackage = getString(R.string.spmc_package);
-        String ouyaName = getString(R.string.ouya_name);
-        String ouyaPackage = getString(R.string.ouya_package);
+        final String XBMC_NAME = getString(R.string.xbmc_name);
+        final String XBMC_PACKAGE = getString(R.string.xbmc_package);
+        final String SPMC_NAME = getString(R.string.spmc_name);
+        final String SPMC_PACKAGE = getString(R.string.spmc_package);
+        final String OUYA_NAME = getString(R.string.ouya_name);
+        final String OUYA_PACKAGE = getString(R.string.ouya_package);
         
         // Initalize arrays for detected installed versions of XBMC
-        // TODO: Maybe combine these lists into a 2D array to decrease the chance that the names and packages will
-        // 		get out of sync?
-        List<String> installedVersionName = new ArrayList<String>();
-        List<String> installedVersionPackage = new ArrayList<String>();
+        final List<String> installedVersionName = new ArrayList<String>();
+        final List<String> installedVersionPackage = new ArrayList<String>();	// Must be final
        
         // Check for user-specified version to launch
         String defaultVersion = getPref("defaultPackage");
@@ -60,20 +51,20 @@ public class MainActivity extends ActionBarActivity {
         }
         
         // If no version has been specified by the user, check for installed versions of XBMC
-        if (isAppInstalled(xbmcPackage))
+        if (isAppInstalled(XBMC_PACKAGE))
         {
-        	installedVersionName.add(xbmcName);
-        	installedVersionPackage.add(xbmcPackage);
+        	installedVersionName.add(XBMC_NAME);
+        	installedVersionPackage.add(XBMC_PACKAGE);
         }
-        if (isAppInstalled(spmcPackage))
+        if (isAppInstalled(SPMC_PACKAGE))
         {
-        	installedVersionName.add(spmcName);
-        	installedVersionPackage.add(spmcPackage);
+        	installedVersionName.add(SPMC_NAME);
+        	installedVersionPackage.add(SPMC_PACKAGE);
         }
-        if (isAppInstalled(ouyaPackage))
+        if (isAppInstalled(OUYA_PACKAGE))
         {
-        	installedVersionName.add(ouyaName);
-        	installedVersionPackage.add(ouyaPackage);
+        	installedVersionName.add(OUYA_NAME);
+        	installedVersionPackage.add(OUYA_PACKAGE);
         }
         // If no versions of XBMC are installed, display the no_xbmc view, which contains
         // a link and QR code for the XBMC wiki page for the Amazon Fire TV
@@ -146,32 +137,16 @@ public class MainActivity extends ActionBarActivity {
 	        		
 	        		Intent launchIntent = null;
 	        		
-	        		// TODO: This section could be simplified if the separate lists were combined into a 2D list
-	        		if (idx == 0) 
+	        		if (idx >= 0)
 	        		{
-	        			launchIntent = getPackageManager().getLaunchIntentForPackage(getString(R.string.xbmc_package));
-	        	    	if (rememberVersion.isChecked()) 
-	        	    		setPref("defaultPackage", getString(R.string.xbmc_package));
-	        		}
-	        		else if (idx == 1)
-	        		{
-	        			launchIntent = getPackageManager().getLaunchIntentForPackage(getString(R.string.spmc_package));
-	        	    	if (rememberVersion.isChecked()) 
-	        	    		setPref("defaultPackage", getString(R.string.spmc_package));
-	        		}
-	        		else if (idx == 2)
-	        		{
-	        			launchIntent = getPackageManager().getLaunchIntentForPackage(getString(R.string.ouya_package));
-	        	    	if (rememberVersion.isChecked()) 
-	        	    		setPref("defaultPackage", getString(R.string.ouya_package));
-	        		}
-	        		
-	        	    if (launchIntent != null)
-	        	    {
-	        	    	startActivity(launchIntent);
+	        			launchIntent = getPackageManager().getLaunchIntentForPackage(installedVersionPackage.get(idx));
+	        			if (rememberVersion.isChecked()) 
+	        				setPref("defaultPackage", installedVersionPackage.get(idx));
+	        			startActivity(launchIntent);
 	        	    	finish();	// ensures that this app is closed once the job is done
 	        	    }
-	        	    else Toast.makeText(getApplicationContext(), R.string.version_notselected, Toast.LENGTH_LONG).show();
+	        	    else 
+	        	    	Toast.makeText(getApplicationContext(), R.string.version_notselected, Toast.LENGTH_LONG).show();
 	        	    
 	        	}
 	        });
