@@ -352,6 +352,8 @@ int string no_xbmc 0x7f0a001a
 int string ouya_name 0x7f0a0014
 int string ouya_package 0x7f0a0015
 int string qr_description 0x7f0a001c
+int string splash_dialog_text 0x7f0a0020
+int string splash_dialog_title 0x7f0a001f
 int string splashscreen_description 0x7f0a001e
 int string spmc_name 0x7f0a0012
 int string spmc_package 0x7f0a0013
