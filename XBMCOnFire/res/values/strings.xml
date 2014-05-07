@@ -49,9 +49,12 @@
     	Text for the no_xbmc view
     //
     -->
-    <string name="no_xbmc">You do not appear to have any versions of XBMC installed on this device. Instructions for installing XBMC may be found on the XBMC wiki:\nhttp://wiki.xbmc.org/index.php?title=Amazon_Fire_TV</string>
+    <string name="no_xbmc">You do not appear to have any versions of XBMC installed on this device. Instructions for installing XBMC may be found on the XBMC wiki:</string>
+    <string name="wikiURL_XBMC">http://wiki.xbmc.org/index.php?title=Main_Page</string>
+    <string name="wikiURL_FireTV">http://wiki.xbmc.org/index.php?title=Amazon_Fire_TV</string>
+    <string name="wikiURL_Ouya">http://wiki.xbmc.org/index.php?title=OUYA</string>
     <string name="exit_app">Exit</string>
-    <string name="qr_description">QR Code for the XBMC wiki page for the Fire TV</string>
+    <string name="qr_description">QR Code for the XBMC wiki page for this device</string>
 
     <!--
     //
@@ -64,5 +67,7 @@
     <string name="splash_dialog_text">Do you want to display the splashscreen when XBMC On Fire is launched? (This preference can be reset by clearing the app\'s data in your device\'s settings menu.)</string>
 	<string name="splash_dialog_button_yes">Yes</string>
 	<string name="splash_dialog_button_no">No</string>
+	
+	<string name="test_string">Please donate!</string>
     
 </resources>

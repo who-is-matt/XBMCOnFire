@@ -7,20 +7,28 @@
     android:background="@color/black" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/TextView01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="@string/no_xbmc"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/textViewWikiPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/test_string"
+        android:textSize="20sp" />
+
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageViewQR"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:contentDescription="@string/qr_description"
-        android:src="@drawable/xmbc_firetv_qr" />
+        android:src="@drawable/mattburns_bitcoin" />
 
     <Button
         android:id="@+id/buttonExit"

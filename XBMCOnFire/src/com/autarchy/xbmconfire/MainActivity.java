@@ -14,9 +14,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.LayoutParams;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity 
@@ -70,6 +72,28 @@ public class MainActivity extends ActionBarActivity
         if (installedVersionName.isEmpty())
         {
         	setContentView(R.layout.no_xbmc);
+        	
+        	String deviceName = android.os.Build.MODEL.toLowerCase();
+        	TextView helpURL = (TextView) findViewById(R.id.textViewWikiPage);
+        	ImageView helpQR = (ImageView) findViewById(R.id.imageViewQR);
+        	
+        	// Provide device-specific links to the XBMC wiki
+        	if (deviceName.contains("ouya"))
+        	{
+        		helpURL.setText(R.string.wikiURL_Ouya);
+        		helpQR.setImageResource(R.drawable.xmbc_ouya_qr);
+        	}
+        	else if (deviceName.contains("aftb"))
+        	{
+         		helpURL.setText(R.string.wikiURL_FireTV);
+        		helpQR.setImageResource(R.drawable.xmbc_firetv_qr);
+        	}
+        	else
+        	{
+        		helpURL.setText(R.string.wikiURL_XBMC);
+        		helpQR.setImageResource(R.drawable.xmbc_xbmc_qr);
+        	}
+        	
         	Button exitXbmc = (Button) findViewById(R.id.buttonExit);
 	        exitXbmc.setOnClickListener(new OnClickListener()
 	        {
@@ -145,7 +169,25 @@ public class MainActivity extends ActionBarActivity
 	        	    	finish();	// ensures that this app is closed once the job is done
 	        	    }
 	        	    else 
+	        	    {
 	        	    	Toast.makeText(getApplicationContext(), R.string.version_notselected, Toast.LENGTH_LONG).show();
+/*
+	        	    	String deviceName = android.os.Build.MODEL.toLowerCase();
+	        	    	
+	        	    	if (deviceName.contains("aftb"))
+	        	    	{
+	        	    		Toast.makeText(getApplicationContext(), "This is a Fire TV: " + deviceName, Toast.LENGTH_LONG).show();
+	        	    	}
+	        	    	else if (deviceName.contains("ouya"))
+	        	    	{
+	        	    		Toast.makeText(getApplicationContext(), "This is an Ouya: " + deviceName, Toast.LENGTH_LONG).show();
+	        	    	}
+	        	    	else
+	        	    	{
+	        	    		Toast.makeText(getApplicationContext(), "I don't know what device this is: " + deviceName, Toast.LENGTH_LONG).show();
+	        	    	}
+*/
+	        	    }
 	        	    
 	        	}
 	        });
