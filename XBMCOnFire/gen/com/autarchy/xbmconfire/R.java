@@ -1181,6 +1181,8 @@ containing a value of this type.
         public static final int ouya_name=0x7f0a0014;
         public static final int ouya_package=0x7f0a0015;
         public static final int qr_description=0x7f0a001c;
+        public static final int splash_dialog_button_no=0x7f0a0022;
+        public static final int splash_dialog_button_yes=0x7f0a0021;
         public static final int splash_dialog_text=0x7f0a0020;
         public static final int splash_dialog_title=0x7f0a001f;
         public static final int splashscreen_description=0x7f0a001e;

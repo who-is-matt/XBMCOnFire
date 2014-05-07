@@ -62,5 +62,7 @@
     <string name="splashscreen_description">XBMC On Fire Splashscreen</string>
     <string name="splash_dialog_title">First Run Setup</string>
     <string name="splash_dialog_text">Do you want to display the splashscreen when XBMC On Fire is launched? (This preference can be reset by clearing the app\'s data in your device\'s settings menu.)</string>
-
+	<string name="splash_dialog_button_yes">Yes</string>
+	<string name="splash_dialog_button_no">No</string>
+    
 </resources>

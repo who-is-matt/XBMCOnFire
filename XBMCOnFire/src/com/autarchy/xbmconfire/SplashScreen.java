@@ -37,7 +37,7 @@ public class SplashScreen extends Activity
     		new AlertDialog.Builder(this)
     	    .setTitle(R.string.splash_dialog_title)
     	    .setMessage(R.string.splash_dialog_text)
-    	    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener()
+    	    .setPositiveButton(R.string.splash_dialog_button_yes, new DialogInterface.OnClickListener()
     	    {
     	        public void onClick(DialogInterface dialog, int which)
     	        { 
@@ -45,7 +45,7 @@ public class SplashScreen extends Activity
     	        	startMain();
     	        }
     	     })
-    	    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() 
+    	    .setNegativeButton(R.string.splash_dialog_button_no, new DialogInterface.OnClickListener() 
     	    {
     	        public void onClick(DialogInterface dialog, int which) 
     	        { 
